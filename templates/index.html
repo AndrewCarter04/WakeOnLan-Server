@@ -1,0 +1,30 @@
+{% extends "layouts/layout.html" %}
+{% block title %}WakeOnLan{% endblock %}
+
+
+{% block content %}
+
+    <br>
+    <div class="container text-center">
+        <h1>James' WakeOnLan Button</h1>
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for device in devices %}
+                    <th>{{ device.name }}</th>
+                    <td>{{ device.address }}</td>
+                    <td><button class="btn btn-outline-danger wol-trigger" data-address="{{ device.address }}">Wake Up!</button></td>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
