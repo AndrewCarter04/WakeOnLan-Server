@@ -1,6 +1,7 @@
-[
-  {
+{
+  "e3a38b27-d706-41ab-905c-fa1b2ebcdf11": {
     "name": "James-PC",
-    "address": "E0:D5:5E:E0:0E:ED"
+    "ip": "192.168.0.2",
+    "mac": "E0:D5:5E:E0:0E:ED"
   }
-]
+}
