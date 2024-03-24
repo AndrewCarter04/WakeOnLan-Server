@@ -2,13 +2,14 @@ from re import findall
 import os
 
 DEFAULT_MAX_PING = 1
+PING_TIMEOUT = os.getenv("timeout")
 
 
 def ping(ip):
     current_attempt = 0
     while current_attempt < DEFAULT_MAX_PING:
         #print(f"Pinging {ip} attempt {current_attempt}")
-        result = os.popen(f'ping {ip} -c 1 -W 100').read()
+        result = os.popen(f'ping {ip} -c 1 -W {PING_TIMEOUT}').read()
         test_result = findall(r'\d\d bytes from ((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}: icmp_seq=\d+\sttl=\d+ '
                               r'time=\d+\.\d+ ms', result)
         if test_result:
