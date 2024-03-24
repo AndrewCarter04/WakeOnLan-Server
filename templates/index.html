@@ -13,20 +13,21 @@
             <thead>
                 <tr>
                     <th scope="col">Name</th>
-                    <th scope="col">MAC Address</th>
-                    <th scope="col">IP Address</th>
+                    <th scope="col">Status</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 {% for device in devices %}
-                    <th>{{ devices[device].name }}</th>
-                    <td>{{ devices[device].mac }}</td>
-                    <td>{{ devices[device].ip }}</td>
-                    <td>
-                        <button class="btn btn-outline-danger wol-trigger" data-id="{{ device }}">Wake Up!</button>
-                        <button class="btn btn-outline-success ping-test" data-id="{{ device }}">Test Ping</button>
-                    </td>
+                    <tr>
+                        <th>{{ devices[device].name }}</th>
+                        <td>
+                            <button style="width: 100%" class="btn btn-outline-primary" name="ping-test" data-id="{{ device }}">Loading...</button>
+                        </td>
+                        <td>
+                            <button style="width: 100%" class="btn btn-outline-secondary" name="wol-trigger" data-id="{{ device }}">Wake Up!</button>
+                        </td>
+                    </tr>
                 {% endfor %}
             </tbody>
         </table>

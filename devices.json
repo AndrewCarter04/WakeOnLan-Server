@@ -3,5 +3,10 @@
     "name": "James-PC",
     "ip": "192.168.0.2",
     "mac": "E0:D5:5E:E0:0E:ED"
+  },
+  "97929f00-5450-4003-baa0-05896c29a64f": {
+    "name": "Offline Test",
+    "ip": "10.0.0.1",
+    "mac": "NA"
   }
 }

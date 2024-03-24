@@ -6,7 +6,8 @@ function trigger_wakeup() {
     xhr.onload = e => {
         if (xhr.readyState === 4) { // Once Request is Complete
             if (xhr.status === 200) {
-                alert("Success!")
+                this.className = "btn btn-success"
+                setTimeout(() => { this.className = "btn btn-outline-secondary"}, 1000)
             } else {
                 alert(xhr.responseText)
             }
@@ -28,9 +29,11 @@ function ping_test() {
             if (xhr.status === 200) {
                 let resObj = JSON.parse(xhr.responseText)
                 if (resObj.status === "online") {
-                    alert("Device Online")
+                    this.innerText = "Online"
+                    this.className = "btn btn-success"
                 } else if (resObj.status === "offline") {
-                    alert("Device Offline")
+                    this.innerText = "Offline"
+                    this.className = "btn btn-danger"
                 } else {
                     alert("An Error Occured: " + resObj)
                 }
@@ -47,11 +50,12 @@ function ping_test() {
 }
 
 window.addEventListener("load", () => {
-    for (let item of document.getElementsByClassName("wol-trigger")) {
+    for (let item of document.getElementsByName("wol-trigger")) {
         item.addEventListener("click", trigger_wakeup)
     }
-    for (let item of document.getElementsByClassName("ping-test")) {
+    for (let item of document.getElementsByName("ping-test")) {
         item.addEventListener("click", ping_test)
+        item.dispatchEvent(new CustomEvent("click"))
     }
 
 })
